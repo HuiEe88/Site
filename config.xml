@@ -13,4 +13,5 @@
   <plugin name="cordova-plugin-splashscreen" spec="3.2.2" />
 
   <icon src="icon.jpg" />
+  <splash src="splash.png" />
 </widget>
