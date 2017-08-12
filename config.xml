@@ -12,6 +12,6 @@
   <plugin name="cordova-plugin-device" spec="1.1.2" />
   <plugin name="cordova-plugin-splashscreen" spec="3.2.2" />
 
-  <icon src="icon.png" />
+  <icon src="icon1.png" />
   <splash src="splash.png" />
 </widget>
