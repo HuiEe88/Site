@@ -1,3 +1,68 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<style>
+
+#myInput {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+  
+  .header img {
+  float: left;
+  width: 64px;
+  height: 64px;
+  background: #555;
+}
+
+.header h2 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+  
+</style>
+</head>
+<body>
+  
+ <div class="header">
+<img src="logo64x64.png" alt="logo" />
+<h2>CCR 50th Anniversary</h2>
+</div>
+  
+
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for .." title="Type in searchkey">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:50;">Name</th>
+	<th style="width:25%;">Reg no</th>
+    <th style="width:25%;">Phone number</th>	
+<!--	<th style="width:5%;">Status</th>
+    <th style="width:25%;">IC number</th> -->
+  </tr>
 <tr><td bgcolor =#ffffcc>Robert Irithiadas</td><td>1</td><td bgcolor =#ffffcc>6789</td></tr>
 <tr><td bgcolor =#ffffcc>Irithiadas</td><td>2</td><td bgcolor =#ffffcc>9666</td></tr>
 <tr><td bgcolor =#ffffcc>Test</td><td>3</td><td bgcolor =#ffffcc>5949</td></tr>
@@ -1836,3 +1901,41 @@
 <tr><td bgcolor =#ffffcc>Charlotte Cheng</td><td>1836</td><td bgcolor =#ffffcc>8708</td></tr>
 <tr><td bgcolor =#ffffcc>Caroline Chong</td><td>1837</td><td bgcolor =#ffffcc>8708</td></tr>
 <tr><td bgcolor =#ffffcc>Marcus Cheng</td><td>1838</td><td bgcolor =#ffffcc>9019</td></tr>
+
+
+
+
+</table>
+
+<script>
+ function myFunction() {
+      // Declare variables 
+      var input, filter, table, tr, td, i, occurrence;
+
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+     for (i = 0; i < tr.length; i++) {
+         occurrence = false; // Only reset to false once per row.
+         td = tr[i].getElementsByTagName("td");
+         for(var j=0; j< td.length; j++){                
+             currentTd = td[j];
+             if (currentTd ) {
+                 if (currentTd.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                     tr[i].style.display = "";
+                     occurrence = true;
+                 } 
+             }
+         }
+         if(!occurrence){
+             tr[i].style.display = "none";
+         } 
+     }
+   }
+
+</script>
+</body>
+</html>
